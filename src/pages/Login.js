@@ -4,7 +4,15 @@ import styled from 'styled-components';
 import loginImg from '../images/login-img.svg';
 
 const Login = () => {
-  return <h2>login page</h2>;
+  return (
+    <Wrapper>
+      <div className="container">
+        <img src={loginImg} alt="github user" />
+        <h1>github user</h1>
+        <button className="btn">login</button>
+      </div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section`
