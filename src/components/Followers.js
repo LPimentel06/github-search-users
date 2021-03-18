@@ -51,13 +51,22 @@ const Wrapper = styled.article`
     font-size: 1rem;
   }
   .followers {
-    overflow: scroll;
+    overflow-y: scroll;
     height: 260px;
     display: grid;
     grid-template-rows: repeat(auto-fill, minmax(45px, 1fr));
     gap: 1.25rem 1rem;
     padding: 1rem 2rem;
   }
+
+  .followers::-webkit-scrollbar {
+    width: 0.2em;
+  };
+
+  .followers::-webkit-scrollbar-thumb {
+    background-color: slategrey;
+  };
+
   article {
     transition: var(--transition);
     padding: 0.15rem 0.5rem;

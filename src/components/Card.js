@@ -25,8 +25,8 @@ const Card = () => {
         <p>
           <MdLocationOn /> {location}
         </p>
-        <a href={`https://${blog}`} target="_blank" rel="noopener noreferrer">
-          <MdLink />{blog}
+        <a href={blog.startsWith("http") ? blog : `https://${blog}`} target="_blank" rel="noopener noreferrer">
+          <MdLink /> {blog}
         </a>
       </div>
     </Wrapper>
