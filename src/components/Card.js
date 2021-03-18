@@ -17,16 +17,16 @@ const Card = () => {
         </div>
         <a href={html_url} target='_blank' rel="noopener noreferrer">follow</a>
       </header>
-      <p className="bio">{bio || ''}</p>
+      <p className="bio">{bio}</p>
       <div className="links">
         <p>
-          <MdBusiness /> {company || ''}
+          <MdBusiness /> {company}
         </p>
         <p>
-          <MdLocationOn /> {location || ''}
+          <MdLocationOn /> {location}
         </p>
-        <a href={`https://${blog || ''}`} target="_blank" rel="noopener noreferrer">
-          <MdLink />{blog || ''}
+        <a href={`https://${blog}`} target="_blank" rel="noopener noreferrer">
+          <MdLink />{blog}
         </a>
       </div>
     </Wrapper>

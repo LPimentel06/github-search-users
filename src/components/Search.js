@@ -5,7 +5,8 @@ import { GithubContext } from '../context/context';
 
 const Search = () => {
   const [user, setUser] = React.useState('');
-  // get things from global context
+  const {remaining, limit, error} = React.useContext(GithubContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -17,14 +18,25 @@ const Search = () => {
   return (
     <section className="section">
       <Wrapper className="section-center">
+        {
+          error.show && (
+            <ErrorWrapper>
+              <p>{error.msg}</p>
+            </ErrorWrapper>
+          )
+        }
         <form onSubmit={handleSubmit}>
           <div className="form-control">
             <MdSearch />
             <input type="text" placeholder="enter github user" value={user} onChange={(e) => setUser(e.target.value)} />
-            <button type="submit">search</button>
+            {
+              remaining > 0 && (
+                <button type="submit">search</button>
+              )
+            }
           </div>
         </form>
-        <h3>requests: 60/60</h3>
+        <h3>requests: {remaining}/{limit}</h3>
       </Wrapper>
     </section>
   );
