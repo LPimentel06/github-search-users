@@ -13,6 +13,7 @@ function AuthWrapper({children}) {
       </Wrapper>
     );
   }
+  
   if(error) {
     return (
       <Wrapper>

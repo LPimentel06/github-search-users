@@ -18,7 +18,8 @@ const Pie3D = ({data}) => {
         decimals: 0,
         doughnutRadius: "45%",
         theme: "candy",
-        showPercentValues: 0
+        showPercentValues: 0,
+        legendIconScale: 1.1
       },
       data
     }

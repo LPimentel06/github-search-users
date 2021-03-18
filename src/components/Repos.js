@@ -8,25 +8,29 @@ const Repos = () => {
 
   const languages = repos.reduce((total, item) => {
     const {language, stargazers_count} = item;
+
     if(!language) {
       return total;
     }
+
     if(!total[language]) {
       total[language] = {label: language, value: 1, stars: stargazers_count};
     } else {
       total[language] = {...total[language], value: total[language].value + 1, stars: total[language].stars + stargazers_count};
     }
+
     return total;
   }, {});
 
   const mostUsed = Object.values(languages).sort((a, b) => {
     return b.value - a.value;
-  }).slice(0, 5);
+  }).slice(0, 6);
+  
   const mostPopular = Object.values(languages).sort((a, b) => {
     return b.stars - a.starsl
   }).map((item) => {
     return {...item, value: item.stars};
-  }).slice(0, 5);
+  }).slice(0, 6);
 
   let {stars, forks} = repos.reduce((total, item) => {
     const {stargazers_count, name, forks} = item;
@@ -35,8 +39,8 @@ const Repos = () => {
     return total;
   }, {stars: {}, forks: {}});
 
-  stars = Object.values(stars).slice(-5).reverse();
-  forks = Object.values(forks).slice(-5).reverse();
+  stars = Object.values(stars).slice(-6).reverse();
+  forks = Object.values(forks).slice(-6).reverse();
 
   return (
     <section className="section">

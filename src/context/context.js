@@ -21,6 +21,7 @@ const GithubProvider = ({children}) => {
         setLoading(true);
         
         const response = await axios(`${rootUrl}/users/${user}`).catch((err) => console.log(err));
+
         if(response) {
             setGithubUser(response.data);
             const {followers_url, repos_url} = response.data;
@@ -28,6 +29,7 @@ const GithubProvider = ({children}) => {
             await Promise.allSettled([axios(`${repos_url}?per_page=100`), axios(`${followers_url}?per_page=100`)]).then((results) => {
                 const [repos, followers] = results;
                 const status = 'fulfilled';
+
                 if(repos.status === status) {
                     setRepos(repos.value.data);
                 }
@@ -38,6 +40,7 @@ const GithubProvider = ({children}) => {
         } else {
             toggleError(true, 'there is no user with that username.');
         }
+
         checkRequests();
         setLoading(false);
     };
@@ -46,6 +49,7 @@ const GithubProvider = ({children}) => {
         axios(`${rootUrl}/rate_limit`).then(({data}) => {
             let {rate: {remaining, limit}} = data;
             setRequests({remaining, limit});
+            
             if(remaining === 0) {
                 toggleError(true, 'sorry, you have exceeded your hourly rate limit!');
             }
