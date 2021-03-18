@@ -5,13 +5,13 @@ import { GithubContext } from '../context/context';
 
 const Search = () => {
   const [user, setUser] = React.useState('');
-  const {remaining, limit, error} = React.useContext(GithubContext);
+  const {remaining, limit, error, searchGithubUser, loading} = React.useContext(GithubContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
     if(user) {
-      
+      searchGithubUser(user);
     }
   };
 
@@ -30,7 +30,7 @@ const Search = () => {
             <MdSearch />
             <input type="text" placeholder="enter github user" value={user} onChange={(e) => setUser(e.target.value)} />
             {
-              remaining > 0 && (
+              remaining > 0 && !loading && (
                 <button type="submit">search</button>
               )
             }

@@ -12,7 +12,7 @@ const Card = () => {
       <header>
         <img src={avatar_url} alt={name} />
         <div>
-          <h4>{name}</h4>
+          <h4>{name || 'John Doe'}</h4>
           <p>@{twitter_username || 'john_doe'}</p>
         </div>
         <a href={html_url} target='_blank' rel="noopener noreferrer">follow</a>
