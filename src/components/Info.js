@@ -8,7 +8,6 @@ import Item from './Item';
 const UserInfo = () => {
   const {githubUser} = React.useContext(GithubContext);
   const {public_repos, followers, following, public_gists} = githubUser;
-
   const items = [
     {id: 1, icon: <GoRepo className="icon" />, label: 'repos', value: public_repos, color: 'pink'},
     {id: 2, icon: <FiUsers className="icon" />, label: 'followers', value: followers, color: 'green'},

@@ -31,4 +31,4 @@ export default {
   following: 31,
   created_at: "2010-01-04T10:11:44Z",
   updated_at: "2021-03-12T15:26:25Z"
-  };
+};
