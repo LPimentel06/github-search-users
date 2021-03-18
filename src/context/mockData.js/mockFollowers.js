@@ -1,4 +1,4 @@
-export default [
+export const mockFollowers = [
   {
     login: "ThaELL1",
     id: 37319124,
