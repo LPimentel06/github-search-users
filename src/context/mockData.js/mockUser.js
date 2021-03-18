@@ -27,7 +27,7 @@ export default {
   twitter_username: "john_smilga",
   public_repos: 204,
   public_gists: 0,
-  followers: 4294,
+  followers: 4295,
   following: 0,
   created_at: "2018-08-06T06:48:23Z",
   updated_at: "2021-03-12T17:17:54Z"
