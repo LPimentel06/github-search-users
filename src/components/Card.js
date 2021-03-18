@@ -13,27 +13,21 @@ const Card = () => {
         <img src={avatar_url} alt={name} />
         <div>
           <h4>{name}</h4>
-          <p>{twitter_username && `@${twitter_username}`}</p>
+          <p>@{twitter_username || ''}</p>
         </div>
         <a href={html_url} target='_blank' rel="noopener noreferrer">follow</a>
       </header>
       <p className="bio">{bio || ''}</p>
       <div className="links">
-        {company && (
-          <p>
-            <MdBusiness /> {company}
-          </p>
-        )}
-        {location && (
-          <p>
-            <MdLocationOn /> {location}
-          </p>
-        )}
-        {blog && (
-          <a href={`https://${blog}`} target="_blank" rel="noopener noreferrer">
-            <MdLink />{blog}
-          </a>
-        )}
+        <p>
+          <MdBusiness /> {company || ''}
+        </p>
+        <p>
+          <MdLocationOn /> {location || ''}
+        </p>
+        <a href={`https://${blog || ''}`} target="_blank" rel="noopener noreferrer">
+          <MdLink />{blog || ''}
+        </a>
       </div>
     </Wrapper>
   );
